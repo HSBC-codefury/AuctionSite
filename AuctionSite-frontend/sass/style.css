@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+body .main-container {
+  min-height: calc(100vh - 66px);
+}
+
+body .main-container header nav {
+  background: #1c92f4;
+}
+
+body .main-container header nav a.navbar-brand {
+  text-decoration: none;
+  color: white;
+}
+
+body .main-container header nav a.navbar-brand img#fleft {
+  width: 140px;
+  height: 90px;
+}
+
+body .main-container header nav .navbar-nav .nav-item {
+  margin: 15px;
+}
+
+body .main-container header nav .navbar-nav .nav-item button {
+  padding: 10px 25px;
+}
+
+body .main-container header nav .navbar-nav .nav-item button#login {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+body .main-container header nav .navbar-nav .nav-item button#register {
+  background: white;
+  border: 2px solid white;
+  color: #343a40;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #1c92f4;
+}
+
+body .main-container header nav .navbar-nav .nav-item .nav-link {
+  color: white;
+  text-transform: uppercase;
+}
+
+body .main-container section.herosection .col-12 {
+  padding: 0px;
+}
+
+body .main-container section.herosection .col-12.left-section {
+  position: relative;
+}
+
+body .main-container section.herosection .col-12.left-section .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body .main-container section.herosection .col-12.left-section .hero-content h1 span {
+  color: #1c92f4;
+}
+
+body .main-container .product-section h1 {
+  text-transform: uppercase;
+  position: relative;
+}
+
+body .main-container .product-section h1:after {
+  content: "";
+  position: absolute;
+  border-bottom: 5px solid #36aff6;
+  width: 200px;
+  height: 5px;
+  top: 100%;
+  left: 42.5%;
+}
+
+body .main-container .product-section .row {
+  justify-content: center;
+  margin: 20px 0px 0px !important;
+}
+
+body .main-container .product-section .row .col-md-3 {
+  height: 150px;
+  max-width: 300px;
+  margin: 10px 20px 0px;
+}
+
+footer {
+  background: #1c92f4;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+footer h4 {
+  margin: 0px;
+}
+
+.be-category-selection__name {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  position: relative;
+  min-width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.be-category-selection__background {
+  position: absolute;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.be-category-selection__item {
+  padding: 0.5rem;
+  flex-basis: 25%;
+}
+
+.be-category-selection__category:hover .be-category-selection__background::before {
+  opacity: 0.4;
+}
+
+.be-category-selection__background::before {
+  background-color: rgba(34, 34, 34, 0.3);
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.18s;
+}
+/*# sourceMappingURL=style.css.map */
+
+.c-scrollable__container {
+  scroll-padding-left: 0;
+}
+.c-scrollable__container {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  margin-right: -76.5rem;
+  margin-left: calc(-76.5rem - 1.5rem / 2);
+  padding: 0 76.5rem;
+  white-space: nowrap;
+  -webkit-scroll-snap-type: x mandatory;
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 70rem;
+  -ms-scroll-snap-type: mandatory;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./sass/style.css">
+
+</head>
+<body>
+<!-- navigation bar -->
+<main class="main-container">
+
+
+<header>
+
+  <nav class="navbar navbar-expand-lg  text-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img id="fleft" src="../images/Logo1.png"/>
+    </a>
+    
+<!-- <div class="ml-auto">
+  <a class="category-dropdown" tabindex="1">
+    Categories
+  </a>
+ <div class="awesomplete d-flex" bis_skin_checked="1">
+   <input autocapitalize="off" autocomplete="off" autocorrect="off" class="c-input button-inside main-bg mobile-inverted js-search-autocomplete js-ab-search-placeholder" data-auctions-heading="Find auctions " data-categories-heading="Find in categories" data-label="All auctions" name="q" placeholder="Search for brand, model, artist...." type="search" aria-autocomplete="list">
+   <ul hidden=""></ul>
+   <span class="visually-hidden" role="status" aria-live="assertive" aria-relevant="additions"></span>
+  </div>
+<button class="c-button small round inside-input c-header__search__button" title="Search" type="submit"></button>
+</div> -->
+    
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0 align-items-center">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <form>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for brand, model, artist..."  style="min-width: 320px;
+            border-radius: 7px;">
+            <div class="input-group-btn" style="position: absolute;
+            right: 0px;
+            background: none !important;">
+              <button class="btn btn-default bg-transparent" type="submit">
+                <i class="fa fa-search" style="color: grey;"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Sell <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item">
+            <button id="login">
+                Log in
+            </button>
+        </li>
+        <li class="nav-item">
+            <button id="register">
+                Register
+            </button>
+        </li>
+      </ul>
+     
+    </div>
+  </nav>
+</header>
+
+<!-- hero section -->
+<section class="herosection d-flex flex-wrap-reverse">
+  <div class="col-md-6 col-12 left-section">
+    <div class="hero-content">
+      <h1>
+        Lorem ipsum dolor sit <span>amet</span> consectetur.
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ullam perspiciatis impedit cumque earum enim?
+      </p>
+    
+    </div>
+   
+  </div>
+  <div class="col-md-6 col-12 right-section">
+    <img src="./images/22062.png" alt="" class="img-responsive w-100">
+  </div>
+   
+</section>
+
+
+<!-- Products -->
+<section class="product-section mb-4">
+  <h1 class="text-center ">Products</h1>
+
+ 
+    <div class="row">
+      <ul class="be-category-selection"></ul>
+      <div class="col-md-3 bg-dark ">
+            <li class="be-category-selection__item">
+            <a class="be-category-selection__category" href="#">
+            <div class="be-category-selection__background" bis_skin_checked="1" style="background-image: url('../images/Stamp.png');">
+            </div>
+            <div class="be-category-selection__name" bis_skin_checked="1">Stamps</div>
+            </a>
+          </li>
+        </div>
+
+     
+      <div class="col-md-3 bg-dark">
+        <li class="be-category-selection__item">
+          <a class="be-category-selection__category" href="#">
+          <div class="be-category-selection__background" bis_skin_checked="1" style="background-image: url('../images/Book.jpg');">
+          </div>
+          <div class="be-category-selection__name" bis_skin_checked="1">Books-Art & Photography</div>
+          </a>
+        </li>
+  
+      </div>
+      <div class="col-md-3 bg-dark">
+        <li class="be-category-selection__item">
+          <a class="be-category-selection__category" href="#">
+          <div class="be-category-selection__background" bis_skin_checked="1" style="background-image: url('../images/Wine.jpg');">
+          </div>
+          <div class="be-category-selection__name" bis_skin_checked="1">Wine & Whisky</div>
+          </a>
+        </li>
+  
+      </div>
+      <div class="col-md-3 bg-dark">
+        <li class="be-category-selection__item">
+          <a class="be-category-selection__category" href="#">
+          <div class="be-category-selection__background" bis_skin_checked="1" style="background-image: url('../images/Weapon.jpg');">
+          </div>
+          <div class="be-category-selection__name" bis_skin_checked="1">Militria & Weaponry</div>
+          </a>
+        </li>
+      </div>
+    </div>
+    </div>
+  </ul>
+  
+</section>
+
+<!-- Auction Closing Soon -->
+<!--<section class="auction-closing">
+  <h2 class="text-center">Auctions closing soon</h2>
+  <ul class="c-scrollable__container">
+    <li class="c-scrollable__spacer">
+    </li>
+    <li class="c-scrollable__item auctions">
+      <article class="c-auction-card">
+        <a href="#" class="c-auction-card__link">
+          <div class="c-auction-card__images" bis_skin_checked="1">
+          <div class="c-auction-card__images-spacer" bis_skin_checked="1">
+          </div>
+          <div class="c-auction-card__main-image" bis_skin_checked="1">
+          <div class="c-auction-card__image-element" style="background-image: url('..images/stamps/stamps1.jpg');" bis_skin_checked="1">
+          </div>
+          </div>
+          <div class="c-auction-card__thumb-images" bis_skin_checked="1">
+          <div class="c-auction-card__thumb-image" bis_skin_checked="1">
+          <div class="c-auction-card__image-element" style="background-image: url('..images/stamps/1.jpg');" bis_skin_checked="1">
+          </div>
+          </div>
+          <div class="c-auction-card__thumb-image" bis_skin_checked="1">
+          <div class="c-auction-card__image-element" style="background-image: url('..images/stamps/2.jpg');" bis_skin_checked="1">
+          </div>
+          </div>
+          <div class="c-auction-card__thumb-image blurr" bis_skin_checked="1">
+          <div class="u-typography-label-l c-auction-card__number-of-lots" bis_skin_checked="1">+42</div>
+          <div class="c-auction-card__image-element" style="background-image: url('..images/stamps/3.jpg');" bis_skin_checked="1"></div></div></div></div>
+          <div class="c-auction-card__text" bis_skin_checked="1">
+          <p class="u-typography-label-s u-typography-uppercase c-auction-card__subtitle">Curated by Luca Esposito</p><h6 class="u-truncate-2-lines u-typography-h6 c-auction-card__heading">Mineral &amp; Design Auction </h6><div class="c-auction-card__timer" bis_skin_checked="1"><p class="u-typography-h7 u-color-mid-gray u-color-mid-gray">
+          Ends today from 17:30 onwards</p></div>
+          </div>
+          </a>
+          </article>
+  
+</section>-->
+
+<!-- footer -->
+</main>
+<footer>
+  <h4>Copyright <span id="copyrightyear">Demo</span></h4>
+</footer>
+</body>
+<script src="./scripts/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

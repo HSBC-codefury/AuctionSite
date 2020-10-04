@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Registeratiton</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="registrationform" class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nameofuser">Name</label>
+                    <input type="name" class="form-control" id="nameofuser" required>
+                    <div class="invalid-feedback">
+                        This field is required.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="DateOfBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="DateOfBirth" required>
+                    <div class="invalid-feedback">
+                        This field is required.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    <div class="invalid-feedback">
+                        Invalid email.
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="userNumber">Phone Number</label>
+                    <input type="phonenumber" class="form-control" id="userNumber" pattern="[789][0-9]{9}"  required>
+                    <div class="invalid-feedback">
+                        Invalid phonenumber.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" id="userName" required>
+                    <div class="invalid-feedback">
+                        This field is required.
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="walletAmount">Wallet Amount</label>
+                    <input type="number" class="form-control" id="walletAmount">
+                    <div class="valid-feedback">
+                        valid
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" id="pwdId" class="form-control" required>
+                    <div class="valid-feedback">Valid</div>
+                    <div id="cPwdInvalid" class="invalid-feedback">this field is required</div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword2">Confirm Password</label>
+                    <input type="password" id="cPwdId" class="form-control myCpwdClass" required>
+                    <div id="cPwdValid" class="valid-feedback">Passwords Match</div>
+                    <div id="cPwdInvalid" class="invalid-feedback">this field is required</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address Line 1</label>
+                <input type="text" class="form-control" id="inputAddress" >
+                <div class="valid-feedback">
+                    valid
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                    <div class="valid-feedback">
+                        valid
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                    <div class="valid-feedback">
+                        valid
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                    <div class="valid-feedback">
+                        valid
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Type of User</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option value="1">Buyer</option>
+                    <option value="2">Seller</option>
+                </select>
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+            <button id="submitBtn" type="submit" style="width: 200px;" class="btn btn-primary mx-auto">Register</button>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+        <script src="formValidation.js"></script>
+</body>
+
+</html>
