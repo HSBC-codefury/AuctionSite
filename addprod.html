@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link type="text/css" rel="stylesheet" href="../styles/addprod.css"/>
+</head>
+<body>
+<div class="outercontainer">
+    <div class="heading">
+        <h2>Add Product</h2>
+    </div>
+    <form id="addproductform"   action="" >
+        <div class="container">
+            <ul>
+            <li><label for="productname">Product Name :</label></li>
+            <li><input type="text" id="productname" name="productname" placeholder="Add product here..." required/></li>
+
+            <li><label for="productcategory">Category :</label></li>
+            <li><select name="productcategory" id="productcategory">
+                <option selected="" value="Default">(Please select a category)</option>
+                <option value="Archaeology & Natural History">Archaeology & Natural History</option>
+                <option value="Diamonds & Gemstones">Diamonds & Gemstones</option>
+                <option value="Militaria & Weaponry">Militaria & Weaponry</option>
+                <option value="Classic Automobilia">Classic Automobilia</option>
+                <option value="Coins & Stamps">Coins & Stamps</option>
+                <option value="Asian & Tribal Art">Asian & Tribal Art</option>
+            </select></li>
+                <li><label for="productdesc">Description :</label></li>
+            <li><textarea id="productdesc" name="productdesc" placeholder="Give details.." required></textarea></li>
+
+            <li><label for="actualprice">Actual Price :</label></li>
+            <li><input type="text" id="actualprice" name="actualprice" required/></li>
+
+            <li><label for="quantity">Quantity :</label></li>
+            <li><input type="text" id="quantity" name="quantity" required/></li>
+            </ul>
+            <p>Upload an image of product (Optional) :</p>
+            <input type="file" id="myFile" name="filename">
+
+            <div class="submit">
+                <button type="submit" class="submitbtn">Submit</button>
+            </div>
+
+        </div>
+        <section class="sectionclass">
+
+
+        </section>
+    </form>
+
+
+</div>
+</body>
+</html>
