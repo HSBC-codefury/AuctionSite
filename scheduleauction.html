@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Auction</title>
+    <link type="text/css" rel="stylesheet" href="../styles/scheduleauction.css"/>
+</head>
+<body>
+<h1>Schedule the Auction</h1>
+<div class="container">
+    <form>
+        <table>
+            <tr>
+                <td><label for="productname">Product :</label></td>
+                <td><select name="productname" id="productname">
+                    <option selected="" value="Default">(Please select a product)</option>
+                    <option value="Archaeology & Natural History">Archaeology & Natural History</option>
+                    <option value="Diamonds & Gemstones">Diamonds & Gemstones</option>
+                    <option value="Militaria & Weaponry">Militaria & Weaponry</option>
+                    <option value="Classic Automobilia">Classic Automobilia</option>
+                    <option value="Coins & Stamps">Coins & Stamps</option>
+                    <option value="Asian & Tribal Art">Asian & Tribal Art</option></select></td>
+            </tr>
+            <tr>
+                <td><label for="minbidvalue">Minimum Bid Value :</label></td>
+                <td><input type="text" id="minbidvalue" name="minbidvalue" required/></td>
+            </tr>
+            <tr>
+                <td><label for="bidstartdate">Bid Start Date :</label></td>
+                <td><input type="date" id="bidstartdate" name="bidstartdate" required/></td>
+            </tr>
+
+            <tr>
+                <td><label for="bidenddate">Bid End Date :</label></td>
+                <td><input type="date" id="bidenddate" name="bidenddate" required/></td>
+            </tr>
+        </table>
+
+        <div class="submit">
+            <button type="submit" class="submitbtn">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
