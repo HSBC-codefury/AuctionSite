@@ -13,8 +13,38 @@ $('#pwdId, #cPwdId').on('keyup', function () {
     $('.pwds').addClass('is-invalid')
   }
 });
+//----------------------------------------------------------------------------------
+//----------------------------------------USER VALIDATION
+//----------------------------------------------------------------------------------
+function userValidation(v){
+    let ajaxRequest;
+    try{
+        ajaxRequest = new XMLHttpRequest();
+    } catch (e){
+        try{
+            ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP3.0"); }
+        catch (e){alert("Your browser broke!");
+        return false;
+        }
+    }
 
+    ajaxRequest.onreadystatechange = function(){
+        if(ajaxRequest.readyState == 4 && ajaxRequest.status == 200){         
+           
+              alert(ajaxRequest.responseText);
 
+        }
+    }
+
+    ajaxRequest.open("POST",
+        "http://localhost:7070/Code_Fury/UserValidationController",
+        true);
+    ajaxRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded;"); 		
+    ajaxRequest.send("s="+v.value);
+}
+//------------------------------------------------------------------------------------
+//-------------------------------USER Validation ENDS---------------------------------
+//------------------------------------------------------------------------------------
 //JavaScript for disabling form submissions if there are invalid fields
 (function () {
   'use strict';
@@ -33,4 +63,3 @@ $('#pwdId, #cPwdId').on('keyup', function () {
       });
   }, false);
 })();
-
