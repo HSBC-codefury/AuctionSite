@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,11 +14,11 @@
 
 <body>
     <div class="container">
-        <form id="registrationform" class="needs-validation" novalidate>
+        <form id="registrationform" method="post" action="RegistrationController" class="needs-validation" novalidate>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="nameofuser">Name</label>
-                    <input type="name" class="form-control" id="nameofuser" required>
+                    <input type="name" class="form-control" name="name" id="nameofuser" required>
                     <div class="invalid-feedback">
                         This field is required.
                     </div>
@@ -27,7 +26,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="DateOfBirth">Date of Birth</label>
-                    <input type="date" class="form-control" id="DateOfBirth" required>
+                    <input type="date" class="form-control" name="dob" id="DateOfBirth" required>
                     <div class="invalid-feedback">
                         This field is required.
                     </div>
@@ -35,14 +34,14 @@
 
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    <input type="email" class="form-control" name="email" id="inputEmail4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                     <div class="invalid-feedback">
                         Invalid email.
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="userNumber">Phone Number</label>
-                    <input type="phonenumber" class="form-control" id="userNumber" pattern="[789][0-9]{9}"  required>
+                    <input type="phonenumber" class="form-control" name="contactNo" id="userNumber" pattern="[789][0-9]{9}"  required>
                     <div class="invalid-feedback">
                         Invalid phonenumber.
                     </div>
@@ -50,7 +49,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="userName">User Name</label>
-                    <input type="text" class="form-control" id="userName" required>
+                    <input type="text" onchange="userValidation(this)" class="form-control" name="UserName" id="userName" required>
                     <div class="invalid-feedback">
                         This field is required.
                     </div>
@@ -58,7 +57,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="walletAmount">Wallet Amount</label>
-                    <input type="number" class="form-control" id="walletAmount">
+                    <input type="number" class="form-control" name="WalletAmount" id="walletAmount">
                     <div class="valid-feedback">
                         valid
                     </div>
@@ -66,7 +65,7 @@
                 
                 <div class="form-group col-md-6">
                     <label for="inputPassword1">Password</label>
-                    <input type="password" id="pwdId" class="form-control" required>
+                    <input type="password" id="pwdId" name="password" class="form-control" required>
                     <div class="valid-feedback">Valid</div>
                     <div id="cPwdInvalid" class="invalid-feedback">this field is required</div>
                 </div>
@@ -80,47 +79,19 @@
             </div>
             <div class="form-group">
                 <label for="inputAddress">Address Line 1</label>
-                <input type="text" class="form-control" id="inputAddress" >
+                <input type="text" class="form-control" name="Address" id="inputAddress" >
                 <div class="valid-feedback">
                     valid
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                    <div class="valid-feedback">
-                        valid
-                    </div>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                    <div class="valid-feedback">
-                        valid
-                    </div>
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                    <div class="valid-feedback">
-                        valid
-                    </div>
-                </div>
-
-
-            </div>
-
+            
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Type of User</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                    <option value="1">Buyer</option>
-                    <option value="2">Seller</option>
+                <select class="custom-select" name="UserType" id="inputGroupSelect01">
+                    <option value="Buyer" name="Buyer">Buyer</option>
+                    <option value="Seller" name="seller">Seller</option>
                 </select>
                 <div class="invalid-feedback">
                     This field is required.
@@ -143,5 +114,4 @@
         crossorigin="anonymous"></script>
         <script src="formValidation.js"></script>
 </body>
-
 </html>
