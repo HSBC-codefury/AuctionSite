@@ -1,0 +1,110 @@
+//Final
+
+CREATE TABLE AUCTION_User(
+User_Id INT NOT NULL,
+Name VARCHAR(100) NOT NULL,
+DOB DATE NOT NULL,
+Email VARCHAR(100) NOT NULL,
+Contact_No BIGINT NOT NULL,
+User_Name VARCHAR(100) NOT NULL, 
+Password VARCHAR(100) NOT NULL,
+Address VARCHAR(100) NOT NULL, 
+User_Type VARCHAR(100) NOT NULL,
+Wallet_Amount DOUBLE, 
+CONSTRAINT User_Id_PK PRIMARY KEY(User_Id));
+
+
+
+CREATE TABLE CATEGORY(
+Unique_Id INT NOT NULL, 
+Category_Name VARCHAR(100) NOT NULL,
+Category_Description VARCHAR(500) NOT NULL, 
+CONSTRAINT Category_Name_CPK PRIMARY KEY(Category_Name));
+
+CREATE TABLE PRODUCT
+(Unique_Id INT NOT NULL, 
+Product_Name VARCHAR(100) NOT NULL,
+Product_Category VARCHAR(100) NOT NULL , 
+Product_Description VARCHAR(500) NOT NULL, 
+Actual_Price DOUBLE NOT NULL, 
+Quantity INT NOT NULL, 
+User_Id INT NOT NULL, 
+CONSTRAINT Unique_Id_PPK PRIMARY KEY(Unique_Id),
+CONSTRAINT Product_Category_CFK FOREIGN KEY(Product_Category) REFERENCES CATEGORY(Category_Name),
+CONSTRAINT User_Id_FK FOREIGN KEY(User_Id) REFERENCES AUCTION_USER(User_Id));
+
+CREATE TABLE SCHEDULE_AUCTION(
+Unique_Id INT NOT NULL, 
+Product_Id INT NOT NULL,
+Min_Bid_Value DOUBLE NOT NULL, 
+Bid_Start_Date DATE NOT NULL, 
+Bid_End_Date DATE NOT NULL, 
+User_Id INT NOT NULL,
+Sold_Price DOUBLE NOT NULL, 
+Bid_Status VARCHAR(100) NOT NULL, 
+CONSTRAINT Product_Id_APFK FOREIGN KEY(Product_Id) REFERENCES PRODUCT(Unique_Id), 
+CONSTRAINT User_Id_AFK FOREIGN KEY(User_Id) REFERENCES AUCTION_USER(User_Id));
+
+CREATE TABLE BID(
+Unique_Id INT NOT NULL, 
+Product_Id INT NOT NULL, 
+Bid_Value DOUBLE NOT NULL, 
+User_Id INT NOT NULL, 
+Bid_Status VARCHAR(100) NOT NULL, 
+CONSTRAINT Unique_Id_PKK PRIMARY KEY(Unique_Id),
+CONSTRAINT Product_Id_BPFK FOREIGN KEY(Product_Id) REFERENCES PRODUCT(Unique_Id), 
+CONSTRAINT User_Id_BFK FOREIGN KEY(User_Id) REFERENCES AUCTION_USER(User_Id));
+
+
+INSERT INTO ADMIN.CATEGORY(Unique_Id,Category_Name,Category_Description) VALUES (1,'shoes','All shoes');
+
+INSERT INTO ADMIN.CATEGORY(Unique_Id,Category_Name,Category_Description) VALUES ('2','watches','fastrack watches are good');
+
+
+INSERT INTO ADMIN.PRODUCT(Unique_Id, Product_Name, Product_Category,
+Product_Description, Actual_Price, Quantity, User_Id) VALUES(11,'Nike','shoes','sports shoes',2000,1,357);
+
+INSERT INTO ADMIN.PRODUCT(Unique_Id, Product_Name, Product_Category,
+Product_Description, Actual_Price, Quantity, User_Id) VALUES(12,'Reebok','shoes','sports shoesssss',6000,1,357);
+
+INSERT INTO ADMIN.PRODUCT(Unique_Id, Product_Name, Product_Category,
+Product_Description, Actual_Price, Quantity, User_Id) VALUES(13,'Titan','watch','Party watches',2000,1,357);
+
+INSERT INTO ADMIN.AUCTION_USER(User_Id, Name, DOB, Email, Contact_No,
+User_Name, Password, Address, User_Type, Wallet_Amount)
+VALUES(31, 'Div', '1998-12-11', 'digi@gmail.com', 9400488028, 'doooo',
+'adve', '408 Cali','Buyer', 19870.80);
+
+INSERT INTO ADMIN.AUCTION_USER(User_Id, Name, DOB, Email, Contact_No,
+User_Name, Password, Address, User_Type, Wallet_Amount)
+VALUES(32, 'vidhi', '1991-01-01', 'vidi@gmail.com', 4009871235, 'vsing',
+'trip9', '901 Goa',
+'Buyer', 19550);
+
+INSERT INTO ADMIN.AUCTION_USER(User_Id, Name, DOB, Email, Contact_No,
+User_Name, Password, Address, User_Type, Wallet_Amount)
+VALUES(33, 'john', '1999-12-02', 'john@gmail.com', 8009871235, 'jing',
+'triiip9', '92 delhi',
+'Buyer', 39550);
+
+
+INSERT into SCHEDULE_AUCTION(Unique_Id,Product_Id,Min_Bid_Value,Bid_Start_Date,Bid_End_Date,User_Id,Sold_Price,Bid_Status)values (1,11,100,'2020-10-09','2020-10-10',820 ,0 ,'OPEN');
+
+
+INSERT into SCHEDULE_AUCTION(Unique_Id,Product_Id,Min_Bid_Value,Bid_Start_Date,Bid_End_Date,User_Id,Sold_Price,Bid_Status)values (2,12,1000,'2020-10-09','2020-10-10',589,0 ,'OPEN');
+
+INSERT into BID(Unique_Id,Product_Id,Bid_Value,User_Id,Bid_Status)values
+(101,12,150,820,'OPEN');
+
+INSERT into BID(Unique_Id,Product_Id,Bid_Value,User_Id,Bid_Status)values
+(101,12,150,820,'OPEN');
+
+INSERT into BID(Unique_Id,Product_Id,Bid_Value,User_Id,Bid_Status)values
+(103,12,200,31,'OPEN');
+
+INSERT into BID(Unique_Id,Product_Id,Bid_Value,User_Id,Bid_Status)values
+(104,11,200,32,'OPEN');
+
+INSERT into BID(Unique_Id,Product_Id,Bid_Value,User_Id,Bid_Status)values
+(105,11,500,33,'OPEN');
+
