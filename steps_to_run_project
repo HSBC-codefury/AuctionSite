@@ -1,0 +1,17 @@
+Steps to run->
+1- Check all required libraries.
+2-check weather derby jar is inside web-inf or not ?
+3- drop table product,auction_user.
+4- create new tables using these commands -> 
+CREATE TABLE AUCTION_User(User_Id INT  NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), Name VARCHAR(100), DOB DATE,
+Email VARCHAR(100), Contact_No BIGINT, User_Name VARCHAR(100), Password
+VARCHAR(100), Address VARCHAR(100), User_Type VARCHAR(100),
+Wallet_Amount DOUBLE, CONSTRAINT User_Id_PK PRIMARY KEY(User_Id));
+
+CREATE TABLE PRODUCT(Unique_Id INT  NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), Product_Name VARCHAR(100),
+Product_Category VARCHAR(100), Product_Description VARCHAR(500), Actual_Price
+DOUBLE, Quantity INT, User_Id INT, CONSTRAINT Product_Category_CFK
+FOREIGN KEY(Product_Category) REFERENCES CATEGORY(Category_Name),
+CONSTRAINT User_Id_FK FOREIGN KEY(User_Id) REFERENCES
+AUCTION_USER(User_Id));
+
