@@ -1,0 +1,26 @@
+
+	@Override
+	public boolean validateUserName(User user) throws DBConnCreationException {
+		// TODO Auto-generated method stub
+		boolean stat=false;
+		try {
+			conn=DBHelper.getConnection();
+			pre=conn.prepareStatement(resourceBundle.getString("getUserName"));
+			pre.setString(1,user.getUserName());
+			System.out.println(user.getUserName());
+			resultSet=pre.executeQuery();
+			resultSet.next();
+			System.out.println(resultSet.getInt(1));
+			if(resultSet.getInt(1)>0)
+				stat=true;
+			else
+				stat=false;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stat;
+	}
+
+}
