@@ -24,3 +24,7 @@
 	}
 
 }
+
+QUERY
+
+getUserName=SELECT Count(*) from ADMIN.AUCTION_User where User_Name=?
