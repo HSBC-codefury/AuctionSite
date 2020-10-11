@@ -23,7 +23,7 @@ window.addEventListener('load',function()
     if (checkmonth < 10) checkmonth = "0" + checkmonth;
     if (checkday < 10) checkday = "0" + checkday;
     var checkdatetoday = checkyear + "-" + checkmonth + "-" + checkday;
-    
+
 
 
     document.getElementById("bidstartdate").addEventListener("change", function() {
