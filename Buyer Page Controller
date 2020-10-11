@@ -1,0 +1,82 @@
+package com.hsbc.auction.controllers;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.hsbc.auction.dao.BidDao;
+import com.hsbc.auction.dao.BidDaoImpl;
+import com.hsbc.auction.models.Bid;
+
+
+/**
+ * Servlet implementation class BuyePageController
+ */
+@WebServlet("/BuyerPageController")
+
+public class BuyerPageController extends HttpServlet
+{
+	private static final long serialVersionUID = 1L;
+	
+	 /**
+     * @see HttpServlet#HttpServlet()
+     */
+	
+	public BuyerPageController()
+	{
+		super();
+	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		// TODO Auto-generated method stub				
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		Bid bid=new Bid();
+		BidDao bidDao=new BidDaoImpl();
+		
+		PrintWriter out=response.getWriter();
+	    response.setContentType("text/html");
+	    
+	    
+		try
+		{					
+		   String appliedBid=request.getParameter("PlaceBid");
+    
+           if(bidDao.validateBid(bid,appliedBid))
+           {
+        	request.getRequestDispatcher("BidPlacedSuccessfully.jsp").forward(request, response);
+           }
+           
+           else
+           {
+        	out.println("<p style='float:right;color:red'> Bid Value should be greater than the current Bid Value </p>");
+        	request.getRequestDispatcher("Error.jsp").include(request, response);
+           }
+		}
+		
+		catch(NullPointerException|InputMismatchException exception)
+		{
+			out.println(exception.getMessage());
+		}
+		
+		catch(Exception exception)
+		{
+			out.println(exception.getMessage());
+		}
+		
+	}
+
+}
