@@ -1,0 +1,202 @@
+package com.hsbc.auction.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import com.hsbc.auction.exceptions.DBConnCreationException;
+import com.hsbc.auction.helper.DBHelper;
+import com.hsbc.auction.models.User;
+
+public class UserImpl implements UserDao {
+	private Connection conn = null;
+	private ResourceBundle resourceBundle;
+	private PreparedStatement pre;
+	private ResultSet resultSet;
+	private String userType;
+//	private static int userId = 8000;
+
+	public UserImpl() {
+
+		resourceBundle = ResourceBundle.getBundle("com/hsbc/auction/resources/db");
+	}
+
+	@Override
+	public boolean addCustomer(User user) throws SQLException {
+		// TODO Auto-generated method stub
+		boolean status = false;
+		try {
+			conn = DBHelper.getConnection();
+
+			pre = conn.prepareStatement(resourceBundle.getString("addCustomer"));
+//			userId++;
+//			pre.setInt(1, userId);
+			System.out.println("check1");
+			pre.setString(1, user.getName());
+			System.out.println("check2");
+			pre.setDate(2, Date.valueOf(user.getDob()));
+			System.out.println("check3");
+			pre.setString(3, user.getEmail());
+			System.out.println("check4");
+			pre.setLong(4, user.getContactNo());
+			System.out.println("check5");
+			pre.setString(5, user.getUserName());
+			System.out.println("check6");
+			pre.setString(6, user.getPassword());
+			System.out.println("check7");
+			pre.setString(7, user.getAddress());
+			System.out.println("check8");
+			pre.setString(8, user.getUserType());
+			System.out.println("check9");
+			pre.setDouble(9, user.getWalletAmount());
+			System.out.println("check10");
+			pre.executeUpdate();
+			System.out.println("check11");
+			conn.commit();
+			status = true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("didntget stored in db");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			throw new SQLException("Connection Error Occurred");
+		} finally {
+			conn.close();
+		}
+
+		return status;
+
+//		boolean status= false;
+//		try {
+//			Connection conn  = DBHelper.getConnection();
+//			System.out.print(conn);
+//			System.out.println("coonnected");
+//			
+//			prep = conn.prepareStatement(resourceBundle.getString("addCustomer"));
+//			System.out.println(prep);
+//			prep.setString(1, user.getEmail());
+//			prep.setString(2, user.getPassword());
+//			prep.setString(3, user.getBors());
+//			prep.executeUpdate();
+//			System.out.println("data entered");
+//			conn.commit();
+//			status = true;
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		finally {
+////			try {
+//////				conn.close();
+////			} catch (SQLException e) {
+////				// TODO Auto-generated catch block
+////				e.printStackTrace();
+////			}
+//		}
+//		return status;
+	}
+
+	@Override
+	public List<User> validateLogin(User user) {
+		// TODO Auto-generated method stub
+		List<User> userlist = new ArrayList<User>();;
+		try {
+			conn = DBHelper.getConnection();
+			pre = conn.prepareStatement(resourceBundle.getString("loginQuery"));
+			pre.setString(1, user.getUserName());
+			
+			resultSet = pre.executeQuery();
+			System.out.println("check resultset");
+			String email = null;
+			LocalDateTime lastlogged;
+			Timestamp ts ;
+			long phone = 0l;		
+			if (resultSet.next()) {
+				userType = resultSet.getString("User_Type");
+				email = resultSet.getString("Email");
+				phone = resultSet.getLong("Contact_No");
+				ts = resultSet.getTimestamp("LAST_LOGGEDIN");
+				lastlogged=LocalDateTime.now();
+				pre = conn.prepareStatement(resourceBundle.getString("log"));
+				
+				
+				pre.setTimestamp(1, Timestamp.valueOf(lastlogged));
+				pre.setString(2, user.getUserName());
+				
+				pre.executeUpdate();
+				if(ts == null)		
+					ts = Timestamp.valueOf(lastlogged);
+				
+
+				user = new User();
+				user.setUserType(userType);
+				user.setEmail(email);
+				user.setContactNo(phone);
+				user.setLastLogged(ts.toLocalDateTime());
+				
+				System.out.println(user.getEmail()+""+user.getContactNo()+""+user.getUserType());
+				userlist.add(user);
+				
+				
+				System.out.println(userlist.size());
+				
+				for(User userdetails:userlist) {
+					System.out.println(userdetails);
+				}
+				System.out.println("check1");
+				//System.out.println(resultSet.getString("Contact_No"));
+			} else {
+				userlist = null;
+				System.out.println("check2");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getStackTrace());
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				System.out.println("check3");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return userlist;
+
+	}
+	@Override
+	public boolean validateUserName(User user) throws DBConnCreationException {
+		
+			boolean stat=false;
+			try {
+				conn=DBHelper.getConnection();
+				pre=conn.prepareStatement(resourceBundle.getString("getUserName"));
+				pre.setString(1,user.getUserName());
+				System.out.println(user.getUserName());
+				resultSet=pre.executeQuery();
+				resultSet.next();
+				System.out.println(resultSet.getInt(1));
+				if(resultSet.getInt(1)>0)
+					stat=true;
+				else
+					stat=false;
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return stat;
+		}
+}
